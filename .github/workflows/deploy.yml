@@ -42,3 +42,5 @@ jobs:
       - name: S3에 빌드된 파일 업로드 하기  
         run: aws s3 cp ./dist s3://inst-web/ --recursive
 
+      - name: Cloudfront 캐시 무효화
+        run: aws cloudfront create-invalidation --distribution-id EX4CT0P6EBLDZ --paths "/*"
